@@ -1,0 +1,12 @@
+<div ng-include="'views/partials/nav.html'"></div>
+<div class="container">
+  <p>
+    Challenge List
+  </p>
+  <div ng-repeat="challenge in cc.challengeList">
+    <p>Title: {{challenge.title}}</p>
+    <p>Description: {{challenge.description}}</p>
+    <p>Category: {{challenge.category}}</p>
+  </div>
+  <p>{{cc.challengeList}}</p>
+</div>
