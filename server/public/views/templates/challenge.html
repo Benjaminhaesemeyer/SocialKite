@@ -1,17 +1,22 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
+  <form ng-submit="cc.createChallenge(cc.title, cc.category)">
+    <input type="text" name="" placeholder="title" ng-model="cc.title">
+    <input type="text" name="" placeholder="category" ng-model="cc.category">
+    <input type="submit" value="add challenge">
+  </form>
   <table>
-        <thead>
-          <tr>
-            <th>Challenge</th>
-            <th>Difficulty</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat="challenge in cc.challengeList">
-            <td>{{challenge.title}}</td>
-            <td>{{challenge.category}}</td>
-          </tr>
-        </tbody>
-      </table>
+    <thead>
+      <tr>
+        <th>Challenge</th>
+        <th>Difficulty</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="challenge in cc.challengeList">
+        <td>{{challenge.title}}</td>
+        <td>{{challenge.category}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

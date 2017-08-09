@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
-//load the challenge model
+// load the challenge model
 var Challenges = require('../models/challenge.js');
 
-// Handles Ajax request for Challenge information
+// handles Ajax request for Challenge information
 router.get('/', function(req, res) {
   // find (select) all documents in our challenge collection
   Challenges.find({}, function(err, data) {
@@ -15,26 +15,20 @@ router.get('/', function(req, res) {
       res.send(data);
     }
   });
-});//end GET for Challenges
-
+});
+// adding a challnge to the collection
 router.post('/', function(req, res){
   // create a new challenge
   Challenges.create({
     title : req.body.title,
-    category : reqibody.category,
-    is_complete : false
-  }, function(err, todo) {
-    if (err)
-    res.send(err);
-  });
-  // get and return all the challenges
-  Challenges.find({}, function(err, data) {
-    console.log('inside post challenge route');
+    category : req.body.category,
+  }, function(err, post) {
+    console.log('inside Challenge GET route');
     if(err) {
       console.log('find error:', err);
       res.sendStatus(500);
     } else {
-      res.send(data);
+      res.sendStatus(201);
     }
   });
 });
