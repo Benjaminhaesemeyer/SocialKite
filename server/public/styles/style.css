@@ -78,3 +78,15 @@ li a:hover {
   text-decoration: underline;
   color: #eee;
 }
+
+table, th , td  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  margin: 50px;
+  padding: 5px;
+  font-size: 20px;
+}
+
+td {
+  font-size: 15px;
+}

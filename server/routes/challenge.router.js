@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+//load the challenge model
 var Challenges = require('../models/challenge.js');
 
 // Handles Ajax request for Challenge information
@@ -15,5 +16,6 @@ router.get('/', function(req, res) {
     }
   });
 });//end GET for Challenges
+
 
 module.exports = router;
