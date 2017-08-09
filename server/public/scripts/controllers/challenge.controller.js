@@ -25,4 +25,12 @@ myApp.controller('ChallengeController', ['$http','UserService', function($http, 
       getChallenges();
     });
   };
+  // removing a document from the collection
+  vm.deleteChallenge = function(id){
+    console.log(id);
+    // targeting the specific id
+    $http.delete('/challenge/' + id).then(function(response) {
+      getChallenges();
+    });
+  };
 }]);

@@ -10,12 +10,14 @@
       <tr>
         <th>Challenge</th>
         <th>Difficulty</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="challenge in cc.challengeList">
         <td>{{challenge.title}}</td>
         <td>{{challenge.category}}</td>
+        <td><button ng-click="cc.deleteChallenge(challenge._id)">Remove</button></td>
       </tr>
     </tbody>
   </table>
