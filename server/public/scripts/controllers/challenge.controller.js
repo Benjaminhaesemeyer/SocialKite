@@ -11,4 +11,9 @@ myApp.controller('ChallengeController', ['$http','UserService', function($http, 
       vm.challengeList = response.data;
     });
   }
+
+function createChallenge(){
+
+}
+
 }]);
