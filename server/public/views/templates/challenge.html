@@ -1,9 +1,13 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
-  <form ng-submit="cc.createChallenge(cc.title, cc.category)">
-    <input type="text" name="" placeholder="title" ng-model="cc.title">
-    <input type="text" name="" placeholder="category" ng-model="cc.category">
-    <input type="submit" value="add challenge">
+  <form name="challengeForm">
+    <input type="text" placeholder="Challenge" ng-required="true" name="name" ng-model="cc.title">
+    <select name="mySelect" ng-required="true" ng-model="cc.category">
+       <option value="" selected>Select difficulty</option>
+        <option ng-repeat="x in cc.difficulty" value={{x.level}}>{{x.level}}</option>
+      </select>
+    <button ng-disabled="challengeForm.$invalid || challengeForm.$pending"
+     ng-click="cc.createChallenge(cc.title, cc.category)">Add Challenge</button>
   </form>
   <table>
     <thead>

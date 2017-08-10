@@ -3,6 +3,13 @@ myApp.controller('ChallengeController', ['$http','UserService', function($http, 
   var vm = this;
   vm.userService = UserService;
   getChallenges();
+
+vm.difficulty = [
+          {level : "Easy"},
+          {level : "Normal"},
+          {level : "Hard"}
+      ];
+
   // getting all documents from the challenge collection
   function getChallenges(){
     $http.get('/challenge').then(function(response){
