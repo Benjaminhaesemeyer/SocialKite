@@ -37,7 +37,6 @@ myApp.controller('ChallengeController', ['$http','UserService', function($http, 
     console.log('completeChallenge function');
     $http.put('/challenge', challenge).then(function(response) {
       console.log('put response:',response);
-      getChallenges();
     });
   };
 
