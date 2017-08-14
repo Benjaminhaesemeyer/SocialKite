@@ -4,11 +4,11 @@ myApp.controller('ChallengeController', ['$http','UserService', function($http, 
   vm.userService = UserService;
   getChallenges();
 
-vm.difficulty = [
-          {level : "Easy"},
-          {level : "Normal"},
-          {level : "Hard"}
-      ];
+  vm.difficulty = [
+    {level : "Easy"},
+    {level : "Normal"},
+    {level : "Hard"}
+  ];
 
   // getting all documents from the challenge collection
   function getChallenges(){
@@ -32,6 +32,15 @@ vm.difficulty = [
       getChallenges();
     });
   };
+
+  vm.completeChallenge = function(challenge){
+    console.log('completeChallenge function');
+    $http.put('/challenge', challenge).then(function(response) {
+      console.log('put response:',response);
+      getChallenges();
+    });
+  };
+
   // removing a document from the collection
   vm.deleteChallenge = function(id){
     console.log(id);

@@ -1,6 +1,17 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
-  <p>
-    My Journey
-  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>Challenge</th>
+        <th>Difficulty</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="challenge in ac.journeyList">
+        <td>{{challenge.title}}</td>
+        <td>{{challenge.category}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

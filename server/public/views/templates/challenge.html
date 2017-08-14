@@ -1,7 +1,7 @@
 <div ng-include="'views/partials/nav.html'"></div>
 <div class="container">
   <form name="challengeForm">
-    <input type="text" placeholder="Challenge" ng-required="true" name="name" ng-model="cc.title">
+    <input type="text" placeholder="Challenge" ng-required="true" ng-model="cc.title">
     <select name="mySelect" ng-required="true" ng-model="cc.category">
        <option value="" selected>Select difficulty</option>
         <option ng-repeat="x in cc.difficulty" value={{x.level}}>{{x.level}}</option>
@@ -22,6 +22,7 @@
         <td>{{challenge.title}}</td>
         <td>{{challenge.category}}</td>
         <td><button ng-click="cc.deleteChallenge(challenge._id)">Remove</button></td>
+        <td><button ng-click="cc.completeChallenge(challenge)">Done</button></td>
       </tr>
     </tbody>
   </table>

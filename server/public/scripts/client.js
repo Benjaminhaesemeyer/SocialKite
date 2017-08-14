@@ -24,7 +24,7 @@ myApp.config(function($routeProvider, $locationProvider) {
     })
     .when('/activity', {
       templateUrl: '/views/templates/activity.html',
-      controller: 'ActivityController',
+      controller: 'ActivityController as ac',
       resolve: {
         getuser : function(UserService){
           return UserService.getuser();
