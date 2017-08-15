@@ -1,7 +1,7 @@
 
 <body layout="row">
   <div layout="column" flex>
-    <md-toolbar class="md-medium-tall">
+    <md-toolbar class="md-small-tall" md-scroll-shrink="true">
         <div class="md-toolbar-tools">
       <ul>
         <li><a href="#/user">User Home</a></li>
@@ -18,12 +18,14 @@
       <tr>
         <th>Challenge</th>
         <th>Difficulty</th>
+        <th>Difficulty</th>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="challenge in ac.journeyList">
         <td>{{challenge.title}}</td>
         <td>{{challenge.category}}</td>
+        <td>{{challenge.date}}</td>
       </tr>
     </tbody>
   </table>

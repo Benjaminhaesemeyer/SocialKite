@@ -35,6 +35,23 @@ myApp.controller('ChallengeController', ['$http','UserService', function($http, 
 
   vm.completeChallenge = function(challenge){
     console.log('completeChallenge function');
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+
+    if(dd<10) {
+        dd = '0'+dd
+    } 
+
+    if(mm<10) {
+        mm = '0'+mm
+    }
+
+    today = mm + '/' + dd + '/' + yyyy;
+
+    challenge.date = today;
+    console.log('challenge', challenge.date );
     $http.put('/challenge', challenge).then(function(response) {
       console.log('put response:',response);
     });

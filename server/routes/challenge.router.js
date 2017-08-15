@@ -48,6 +48,7 @@ router.post('/', function(req, res){
 });
 // WORK IN PROGRESS
 router.put('/', function(req, res) {
+  console.log(req);
   User.findByIdAndUpdate(
             {_id: req.user._id},
             {$push: {journey: req.body}},
