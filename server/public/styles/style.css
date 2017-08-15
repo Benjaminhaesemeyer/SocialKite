@@ -90,3 +90,21 @@ table, th , td  {
 td {
   font-size: 15px;
 }
+
+.login-form {
+  md-card {
+    padding: 0!important;
+
+    md-card-title {
+      background-color: blue;
+    }
+  }
+}
+
+.md-medium-tall {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%  !important;
+}

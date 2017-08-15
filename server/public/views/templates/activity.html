@@ -1,5 +1,18 @@
-<div ng-include="'views/partials/nav.html'"></div>
-<div class="container">
+
+<body layout="row">
+  <div layout="column" flex>
+    <md-toolbar class="md-medium-tall">
+        <div class="md-toolbar-tools">
+      <ul>
+        <li><a href="#/user">User Home</a></li>
+        <li><a href="#/activity">My Journey</a></li>
+        <li><a href="#/challenge">Challenge Page</a></li>
+      </ul>
+    </div>
+  </md-toolbar>
+
+  <md-content layout="column" flex>
+   <div flex layout="column">
   <table>
     <thead>
       <tr>
@@ -15,3 +28,6 @@
     </tbody>
   </table>
 </div>
+</md-content>
+</div>
+</body>
