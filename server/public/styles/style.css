@@ -100,6 +100,9 @@ td {
     }
   }
 }
+md-content {
+  padding-top: 60px;
+}
 
 .md-small-tall {
   position: fixed;
