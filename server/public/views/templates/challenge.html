@@ -1,12 +1,14 @@
 <body layout="row">
   <div layout="column" flex>
-    <md-toolbar class="md-medium-tall">
+    <md-toolbar class="md-small-tall">
         <div class="md-toolbar-tools">
-      <ul>
-        <li><a href="#/user">User Home</a></li>
-        <li><a href="#/activity">My Journey</a></li>
-        <li><a href="#/challenge">Challenge Page</a></li>
-      </ul>
+          <md-nav-bar
+          md-selected-nav-item="currentNavItem"
+          nav-bar-aria-label="navigation links">
+            <md-nav-item md-nav-href="#/challenge" name="page1"><img src="../../styles/assets/kite_icon.png" style="width: 28px; height:28px;"></md-nav-item>
+            <md-nav-item md-nav-href="#/activity" name="page2"><img src="../../styles/assets/journey_icon.png" style="width: 20px; height:20px;"></md-nav-item>
+            <md-nav-item md-nav-href="#/user" name="page3"><img src="../../styles/assets/visual_icon.png" style="width: 20px; height:20px;"></md-nav-item>
+          </md-nav-bar>
     </div>
   </md-toolbar>
 

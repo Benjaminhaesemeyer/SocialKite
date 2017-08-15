@@ -3,7 +3,7 @@ myApp.controller('ChallengeController', ['$http','UserService', function($http, 
   var vm = this;
   vm.userService = UserService;
   getChallenges();
-
+vm.currentNavItem = 'page1';
   vm.difficulty = [
     {level : "Easy"},
     {level : "Normal"},
@@ -42,7 +42,7 @@ myApp.controller('ChallengeController', ['$http','UserService', function($http, 
 
     if(dd<10) {
         dd = '0'+dd
-    } 
+    }
 
     if(mm<10) {
         mm = '0'+mm

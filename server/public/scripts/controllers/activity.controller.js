@@ -4,6 +4,7 @@ myApp.controller('ActivityController', ['$http','UserService', function($http, U
   vm.userService = UserService;
   vm.userObject = UserService.userObject;
   vm.journeyList = vm.userObject.journey;
+  vm.currentNavItem = 'page2';
 
 getUserJourney();
 

@@ -1,5 +1,25 @@
-<div ng-include="'views/partials/nav.html'"></div>
-<div class="container">
-    <h1 id="welcome" class="lead">Welcome, {{uc.userObject.userName}}!</h1>
-    <button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</button>
+
+<body layout="row">
+  <div layout="column" flex>
+    <md-toolbar class="md-small-tall" md-scroll-shrink="true">
+        <div class="md-toolbar-tools">
+      <md-nav-bar
+      md-selected-nav-item="currentNavItem"
+      nav-bar-aria-label="navigation links">
+        <md-nav-item md-nav-href="#/challenge" name="page1"><img src="../../styles/assets/kite_icon.png" style="width: 22px; height:22px;"></md-nav-item>
+        <md-nav-item md-nav-href="#/activity" name="page2"><img src="../../styles/assets/journey_icon.png" style="width: 20px; height:20px;"></md-nav-item>
+        <md-nav-item md-nav-href="#/user" name="page3"><img src="../../styles/assets/visual_icon.png" style="width: 25px; height:25px;"></md-nav-item>
+      </md-nav-bar>
+    </div>
+  </md-toolbar>
+
+  <md-content layout="column" flex>
+   <div flex layout="column">
+     <div class="container">
+         <h1 id="welcome" class="lead">Welcome, {{uc.userObject.userName}}!</h1>
+         <button class="btn btn-default" ng-click="uc.userService.logout()">Log Out</button>
+     </div>
 </div>
+</md-content>
+</div>
+</body>
