@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute','ngMaterial','xeditable']);
+var myApp = angular.module('myApp', ['ngRoute','ngMaterial','xeditable', 'bc.Flickity']);
 
 /// Routes ///
 myApp.config(function($routeProvider, $locationProvider) {
@@ -33,6 +33,33 @@ myApp.config(function($routeProvider, $locationProvider) {
     })
     .when('/challenge', {
       templateUrl: '/views/templates/challenge.html',
+      controller: 'ChallengeController as cc',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        },
+      }
+    })
+    .when('/easy', {
+      templateUrl: '/views/templates/easyChallenges.html',
+      controller: 'ChallengeController as cc',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        },
+      }
+    })
+    .when('/normal', {
+      templateUrl: '/views/templates/normalChallenges.html',
+      controller: 'ChallengeController as cc',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        },
+      }
+    })
+    .when('/hard', {
+      templateUrl: '/views/templates/hardChallenges.html',
       controller: 'ChallengeController as cc',
       resolve: {
         getuser : function(UserService){

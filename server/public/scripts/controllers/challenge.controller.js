@@ -1,4 +1,4 @@
-myApp.controller('ChallengeController', ['$http','UserService', function($http, UserService) {
+myApp.controller('ChallengeController', ['$http','UserService', '$location', function($http, UserService, $location) {
   console.log('ChallengeController created');
   var vm = this;
   vm.userService = UserService;
@@ -9,6 +9,17 @@ vm.currentNavItem = 'page1';
     {level : "Normal"},
     {level : "Hard"}
   ];
+
+  var flkty = new Flickity( '.main-gallery', {
+  // options
+  cellAlign: 'left',
+  contain: true
+});
+flkty.on( 'pointerDown', function() {
+  console.log('pointerDown');
+  
+});
+
 
   // getting all documents from the challenge collection
   function getChallenges(){

@@ -8,6 +8,7 @@
             <md-nav-item md-nav-href="#/challenge" name="page1"><img src="../../styles/assets/kite_icon.png" style="width: 28px; height:28px;"></md-nav-item>
             <md-nav-item md-nav-href="#/activity" name="page2"><img src="../../styles/assets/journey_icon.png" style="width: 20px; height:20px;"></md-nav-item>
             <md-nav-item md-nav-href="#/user" name="page3"><img src="../../styles/assets/visual_icon.png" style="width: 20px; height:20px;"></md-nav-item>
+            <md-nav-item md-nav-href="#/easy" name="page4">easy</md-nav-item>
             <md-nav-item md-nav-click="cc.userService.logout()">Log Out</md-nav-item>
           </md-nav-bar>
     </div>
@@ -15,32 +16,11 @@
 
   <md-content layout="column" flex>
    <div flex layout="column">
-  <form name="challengeForm">
-    <input type="text" placeholder="Challenge" ng-required="true" ng-model="cc.title">
-    <select name="mySelect" ng-required="true" ng-model="cc.category">
-       <option value="" selected>Select difficulty</option>
-        <option ng-repeat="x in cc.difficulty" value={{x.level}}>{{x.level}}</option>
-      </select>
-    <button ng-disabled="challengeForm.$invalid || challengeForm.$pending"
-     ng-click="cc.createChallenge(cc.title, cc.category)">Add Challenge</button>
-  </form>
-  <table>
-    <thead>
-      <tr>
-        <th>Challenge</th>
-        <th>Difficulty</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="challenge in cc.challengeList">
-        <td>{{challenge.title}}</td>
-        <td>{{challenge.category}}</td>
-        <td><button ng-click="cc.deleteChallenge(challenge._id)">Remove</button></td>
-        <td><button ng-click="cc.completeChallenge(challenge)">Done</button></td>
-      </tr>
-    </tbody>
-  </table>
+     <div  class="main-gallery js-flickity" data-flickity='{ "cellAlign": "left", "contain": true }'>
+       <div class="gallery-cell"><a class="sliderLink" href="#/easy">Easy</a></div>
+       <div class="gallery-cell"><a class="sliderLink" href="#/normal">Normal </a></div>
+       <div class="gallery-cell"><a class="sliderLink" href="#/hard">Hard </a></div>
+     </div>
 </div>
 </md-content>
 </div>

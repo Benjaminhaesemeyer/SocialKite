@@ -21,11 +21,11 @@
       <tr>
         <th>Challenge</th>
         <th>Difficulty</th>
-        <th>Difficulty</th>
+        <th>Date</th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="challenge in ac.journeyList">
+      <tr ng-repeat="challenge in ac.journeyList | orderBy:'id':true">
         <td>{{challenge.title}}</td>
         <td>{{challenge.category}}</td>
         <td>{{challenge.date}}</td>
