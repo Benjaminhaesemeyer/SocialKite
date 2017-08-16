@@ -185,3 +185,7 @@ gallery {
   border: 0;
    text-decoration: none;
 }
+
+md-nav-bar md-nav-ink-bar {
+  background: white;
+}

@@ -1,7 +1,8 @@
 var myApp = angular.module('myApp', ['ngRoute','ngMaterial','xeditable', 'bc.Flickity']);
 
 /// Routes ///
-myApp.config(function($routeProvider, $locationProvider) {
+myApp.config(function($routeProvider, $locationProvider, $mdAriaProvider) {
+  $mdAriaProvider.disableWarnings();
   $locationProvider.hashPrefix('');
   console.log('myApp -- config');
   $routeProvider
@@ -60,6 +61,15 @@ myApp.config(function($routeProvider, $locationProvider) {
     })
     .when('/hard', {
       templateUrl: '/views/templates/hardChallenges.html',
+      controller: 'ChallengeController as cc',
+      resolve: {
+        getuser : function(UserService){
+          return UserService.getuser();
+        },
+      }
+    })
+    .when('/my', {
+      templateUrl: '/views/templates/myChallenges.html',
       controller: 'ChallengeController as cc',
       resolve: {
         getuser : function(UserService){

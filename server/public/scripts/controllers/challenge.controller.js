@@ -3,15 +3,15 @@ myApp.controller('ChallengeController', ['$http','UserService', '$location', fun
   var vm = this;
   vm.userService = UserService;
   getChallenges();
-  vm.currentNavItem = 'page1';
   vm.difficulty = [
     {level : "Easy"},
     {level : "Normal"},
-    {level : "Hard"}
+    {level : "Hard"},
+    {level : "My Challenges"}
   ];
 
   // creating carousel with Flickity constructor
-  var flkty = new Flickity( '.main-gallery', {
+  var flkty = new Flickity( '.challengeGallery', {
     // options
     cellAlign: 'left',
     contain: true
@@ -60,12 +60,12 @@ myApp.controller('ChallengeController', ['$http','UserService', '$location', fun
     today = mm + '/' + dd + '/' + yyyy;
     // assinging date property to challenge schema
     challenge.date = today;
-    console.log('counter', challenge.count);
     console.log('challenge date:', challenge.date );
     $http.put('/challenge', challenge).then(function(response) {
       console.log('put response:',response);
     });
     challenge.count += 1;
+    console.log('counter', challenge.count);
     $http.put('/count', challenge).then(function(response) {
       console.log('put response:',response);
     });
