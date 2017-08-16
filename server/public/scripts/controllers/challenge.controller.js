@@ -3,23 +3,19 @@ myApp.controller('ChallengeController', ['$http','UserService', '$location', fun
   var vm = this;
   vm.userService = UserService;
   getChallenges();
-vm.currentNavItem = 'page1';
+  vm.currentNavItem = 'page1';
   vm.difficulty = [
     {level : "Easy"},
     {level : "Normal"},
     {level : "Hard"}
   ];
 
+  // creating carousel with Flickity constructor
   var flkty = new Flickity( '.main-gallery', {
-  // options
-  cellAlign: 'left',
-  contain: true
-});
-flkty.on( 'pointerDown', function() {
-  console.log('pointerDown');
-  
-});
-
+    // options
+    cellAlign: 'left',
+    contain: true
+  });
 
   // getting all documents from the challenge collection
   function getChallenges(){
@@ -46,24 +42,31 @@ flkty.on( 'pointerDown', function() {
 
   vm.completeChallenge = function(challenge){
     console.log('completeChallenge function');
+
+    // creating date format to add to completed Challenges
     var today = new Date();
     var dd = today.getDate();
     var mm = today.getMonth()+1; //January is 0!
     var yyyy = today.getFullYear();
 
     if(dd<10) {
-        dd = '0'+dd
+      dd = '0'+dd
     }
 
     if(mm<10) {
-        mm = '0'+mm
+      mm = '0'+mm
     }
 
     today = mm + '/' + dd + '/' + yyyy;
-
+    // assinging date property to challenge schema
     challenge.date = today;
-    console.log('challenge', challenge.date );
+    console.log('counter', challenge.count);
+    console.log('challenge date:', challenge.date );
     $http.put('/challenge', challenge).then(function(response) {
+      console.log('put response:',response);
+    });
+    challenge.count += 1;
+    $http.put('/count', challenge).then(function(response) {
       console.log('put response:',response);
     });
   };

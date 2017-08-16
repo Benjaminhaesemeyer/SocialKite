@@ -50,32 +50,33 @@ router.post('/', function(req, res){
 router.put('/', function(req, res) {
   console.log(req);
   User.findByIdAndUpdate(
-            {_id: req.user._id},
-            {$push: {journey: req.body}},
-            function(err, data) {
-              if(err) {
-                console.log('update error: ', err);
-                res.sendStatus(500);
-              } else {
-                res.sendStatus(200);
-              }
-            });
-          });
+    {_id: req.user._id},
+    {$push: {journey: req.body}},
+    function(err, data) {
+      if(err) {
+        console.log('update error: ', err);
+        res.sendStatus(500);
+      } else {
+        res.sendStatus(200);
+      }
+    });
+    });
 
 
-// delete a challenge by targeting a specific _id
-router.delete('/:id', function(req, res) {
-  Challenges.remove({
-    _id : req.params.id
-  }, function(err, remove) {
-    console.log('inside Challenge GET route');
-    if(err) {
-      console.log('find error:', err);
-      res.sendStatus(500);
-    } else {
-      res.sendStatus(201);
-    }
-  });
-});
 
-module.exports = router;
+    // delete a challenge by targeting a specific _id
+    router.delete('/:id', function(req, res) {
+      Challenges.remove({
+        _id : req.params.id
+      }, function(err, remove) {
+        console.log('inside Challenge GET route');
+        if(err) {
+          console.log('find error:', err);
+          res.sendStatus(500);
+        } else {
+          res.sendStatus(201);
+        }
+      });
+    });
+
+    module.exports = router;
