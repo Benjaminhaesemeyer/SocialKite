@@ -28,20 +28,12 @@ myApp.controller('ChallengeController', ['$http','UserService', function($http, 
     });
   }
   // adding a new document to the challenge collection
-  vm.createChallenge = function (title, category){
+  vm.createChallenge = function (title, category, count){
     var newChallenge = {
       title : title,
-      category : category
+      category : category,
+      count: 0
     };
-    // console.log("new challenge data:", newChallenge );
-    // $http.post('/challenge', newChallenge).then(function(response) {
-    //   //clearing the title and category input fields
-    //   console.log('post working', response);
-    //   vm.title = '';
-    //   vm.category = '';
-    //   getChallenges();
-    // });
-
     $http.put('/challenge/new', newChallenge).then(function(response) {
       console.log('put response to add a challenge:',response);
       vm.title = '';
@@ -49,8 +41,8 @@ myApp.controller('ChallengeController', ['$http','UserService', function($http, 
       getChallenges();
       getUserChallenges();
     });
-
   };
+
 getUserChallenges();
   function getUserChallenges(){
     $http.get('/user').then(function(response){
@@ -79,14 +71,21 @@ getUserChallenges();
     today = mm + '/' + dd + '/' + yyyy;
     // assinging date property to challenge schema
     challenge.date = today;
-    console.log('challenge date:', challenge.date );
     $http.put('/challenge', challenge).then(function(response) {
-      console.log('put response:',response);
+      console.log('put response date:',response);
+    });
+    console.log('challenge date:', challenge.date );
+    $http.put('/challenge/global', challenge).then(function(response) {
+      console.log('put response global:',response);
     });
     challenge.count += 1;
     console.log('counter', challenge.count);
-    $http.put('/count', challenge).then(function(response) {
-      console.log('put response:',response);
+    // $http.put('/count', challenge).then(function(response) {
+    //   console.log('put response global count:',response);
+    // });
+    console.log('logging challenge',challenge);
+    $http.put('/count/new', challenge).then(function(response) {
+      console.log('put response count:',response);
     });
   };
 
