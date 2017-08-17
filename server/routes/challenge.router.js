@@ -17,18 +17,18 @@ router.get('/', function(req, res) {
     }
   });
 });
-
-router.get('/journey', function(req, res){
-  User.find({}, function(err, data) {
-    console.log('inside Challenge GET route');
-    if(err) {
-      console.log('find error:', err);
-      res.sendStatus(500);
-    } else {
-      res.send(data);
-    }
-  });
-});
+//
+// router.get('/journey', function(req, res){
+//   User.find({}, function(err, data) {
+//     console.log('inside Challenge GET route');
+//     if(err) {
+//       console.log('find error:', err);
+//       res.sendStatus(500);
+//     } else {
+//       res.send(data);
+//     }
+//   });
+// });
 
 // adding a challnge to the collection
 router.post('/', function(req, res){
@@ -46,7 +46,7 @@ router.post('/', function(req, res){
     }
   });
 });
-// WORK IN PROGRESS
+
 router.put('/', function(req, res) {
   console.log(req);
   User.findByIdAndUpdate(
@@ -61,6 +61,21 @@ router.put('/', function(req, res) {
       }
     });
     });
+
+    router.put('/new', function(req, res) {
+      console.log(req);
+      User.findByIdAndUpdate(
+        {_id: req.user._id},
+        {$push: {userChallenges: req.body}},
+        function(err, data) {
+          if(err) {
+            console.log('update error: ', err);
+            res.sendStatus(500);
+          } else {
+            res.sendStatus(200);
+          }
+        });
+        });
 
 
 

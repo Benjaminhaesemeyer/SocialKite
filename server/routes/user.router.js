@@ -10,7 +10,8 @@ router.get('/', function(req, res) {
     console.log('logged in', req.user);
     var userInfo = {
       username : req.user.username,
-      journey: req.user.journey
+      journey: req.user.journey,
+      userChallenges: req.user.userChallenges
     };
     console.log('sent userInfo:', userInfo);
     res.send(userInfo);

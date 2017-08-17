@@ -3,10 +3,18 @@ var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt');
 var SALT_WORK_FACTOR = 10;
 
+var ChallengeSchema = new Schema({
+  title: {type: String},
+  category: {type: String},
+  count: {type: Number, default: 0},
+  admin: {type: Boolean, default: false}
+});
+
 // Mongoose Schema
 var UserSchema = new Schema({
     username: {type: String, required: true, index: {unique: true}},
     password: {type: String, required: true},
+    userChallenges: [],
     journey: []
 });
 

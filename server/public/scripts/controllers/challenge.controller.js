@@ -1,7 +1,10 @@
-myApp.controller('ChallengeController', ['$http','UserService', '$location', function($http, UserService, $location) {
+myApp.controller('ChallengeController', ['$http','UserService', function($http, UserService) {
   console.log('ChallengeController created');
   var vm = this;
   vm.userService = UserService;
+  vm.userService = UserService;
+  vm.userObject = UserService.userObject;
+  vm.userChallengeList = vm.userObject.userChallenges;
   getChallenges();
   vm.difficulty = [
     {level : "Easy"},
@@ -30,15 +33,31 @@ myApp.controller('ChallengeController', ['$http','UserService', '$location', fun
       title : title,
       category : category
     };
-    console.log("new challenge data:", newChallenge );
-    $http.post('/challenge', newChallenge).then(function(response) {
-      //clearing the title and category input fields
-      console.log('post working', response);
+    // console.log("new challenge data:", newChallenge );
+    // $http.post('/challenge', newChallenge).then(function(response) {
+    //   //clearing the title and category input fields
+    //   console.log('post working', response);
+    //   vm.title = '';
+    //   vm.category = '';
+    //   getChallenges();
+    // });
+
+    $http.put('/challenge/new', newChallenge).then(function(response) {
+      console.log('put response to add a challenge:',response);
       vm.title = '';
       vm.category = '';
       getChallenges();
+      getUserChallenges();
     });
+
   };
+getUserChallenges();
+  function getUserChallenges(){
+    $http.get('/user').then(function(response){
+      console.log('get user challenge data:', response.data);
+      vm.userChallengeList = response.data.userChallenges;
+    });
+  }
 
   vm.completeChallenge = function(challenge){
     console.log('completeChallenge function');

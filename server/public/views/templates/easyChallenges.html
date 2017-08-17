@@ -36,7 +36,24 @@
       <tr ng-repeat="challenge in cc.challengeList | filter : 'Easy'" >
         <td>{{challenge.title}}</td>
         <td>{{challenge.category}}</td>
-        <td><button ng-click="cc.deleteChallenge(challenge._id)">Remove</button></td>
+        <td><button ng-if="challenge.admin == false" ng-click="cc.deleteChallenge(challenge._id)">Remove</button></td>
+        <td><button ng-click="cc.completeChallenge(challenge)">Done</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <table>
+    <thead>
+      <tr>
+        <th>Challenge</th>
+        <th>Difficulty</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="challenge in cc.userChallengeList  | filter : 'Easy'" >
+        <td>{{challenge.title}}</td>
+        <td>{{challenge.category}}</td>
+        <td><button ng-if="challenge.admin == false" ng-click="cc.deleteChallenge(challenge._id)">Remove</button></td>
         <td><button ng-click="cc.completeChallenge(challenge)">Done</button></td>
       </tr>
     </tbody>
