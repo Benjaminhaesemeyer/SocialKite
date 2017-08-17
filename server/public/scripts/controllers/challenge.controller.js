@@ -71,18 +71,14 @@ getUserChallenges();
     today = mm + '/' + dd + '/' + yyyy;
     // assinging date property to challenge schema
     challenge.date = today;
+    challenge.count += 1;
     $http.put('/challenge', challenge).then(function(response) {
       console.log('put response date:',response);
     });
-    console.log('challenge date:', challenge.date );
+
     $http.put('/challenge/global', challenge).then(function(response) {
       console.log('put response global:',response);
     });
-    challenge.count += 1;
-    console.log('counter', challenge.count);
-    // $http.put('/count', challenge).then(function(response) {
-    //   console.log('put response global count:',response);
-    // });
     console.log('logging challenge',challenge);
     $http.put('/count/new', challenge).then(function(response) {
       console.log('put response count:',response);
