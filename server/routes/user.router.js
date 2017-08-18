@@ -11,7 +11,8 @@ router.get('/', function(req, res) {
     var userInfo = {
       username : req.user.username,
       journey: req.user.journey,
-      userChallenges: req.user.userChallenges
+      userChallenges: req.user.userChallenges,
+      globalChallenges: req.user.globalChallenges
     };
     console.log('sent userInfo:', userInfo);
     res.send(userInfo);

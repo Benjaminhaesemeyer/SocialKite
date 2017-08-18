@@ -14,7 +14,7 @@
     </div>
   </md-toolbar>
 
-  <md-content layout="column" flex>
+  <!-- <md-content layout="column" flex>
    <div flex layout="column">
   <table>
     <thead>
@@ -34,6 +34,51 @@
       </tr>
     </tbody>
   </table>
+</div>
+</md-content> -->
+<md-content layout="column" flex>
+ <div flex layout="column">
+<table>
+  <thead>
+    USER CHALLENGES
+    <tr>
+      <th>Challenge</th>
+      <th>Difficulty</th>
+      <th>Date</th>
+      <th>Times Completed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="challenge in ac.userChallengeList | orderBy:'id':true">
+      <td>{{challenge.title}}</td>
+      <td>{{challenge.category}}</td>
+      <td>{{challenge.date}}</td>
+      <td>{{challenge.count}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</md-content>
+<md-content layout="column" flex>
+ <div flex layout="column">
+<table>
+  <thead>
+    <tr>
+      <th>Challenge</th>
+      <th>Difficulty</th>
+      <th>Date</th>
+      <th>Times Completed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="challenge in ac.globalChallengeList | orderBy:'id':true">
+      <td>{{challenge.title}}</td>
+      <td>{{challenge.category}}</td>
+      <td>{{challenge.date}}</td>
+      <td>{{challenge.count}}</td>
+    </tr>
+  </tbody>
+</table>
 </div>
 </md-content>
 </div>
