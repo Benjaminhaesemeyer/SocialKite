@@ -18,7 +18,7 @@ console.log('globalChallengeList:', vm.globalChallengeList);
     $http.get('/user').then(function(response){
       console.log('challenge data:', response.data);
 
-      // vm.userChallengeList = response.data.userChallenges;
+      vm.userChallengeList = response.data.userChallenges;
       vm.globalChallengeList = response.data.globalChallenges;
     });
   }
