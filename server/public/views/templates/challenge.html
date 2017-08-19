@@ -12,7 +12,20 @@
           </md-nav-bar>
     </div>
   </md-toolbar>
+  <!-- CARD FLIP ANIMATION WIP -->
 
+    <md-content layout="column" flex>
+  <div class="flip">
+      <div class="card" ng-class="{'flipped':isFlipped}" ng-click="isFlipped=!isFlipped">
+          <div class="face front">
+              Front
+          </div>
+          <div class="face back">
+              Back
+          </div>
+      </div>
+  </div>
+  </md-content>
   <md-content layout="column" flex>
    <div flex layout="column">
      <div  class="challengeGallery js-flickity" data-flickity='{ "cellAlign": "left", "contain": true }'>

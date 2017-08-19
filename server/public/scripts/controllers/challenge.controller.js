@@ -85,12 +85,12 @@ getUserChallenges();
     });
   };
 
-  // removing a document from the collection
-  vm.deleteChallenge = function(id){
-    console.log(id);
+  // NEEDS TO BE FIXED
+  vm.deleteChallenge = function(challenge){
+    console.log('Delete challenge:', challenge);
     // targeting the specific id
-    $http.delete('/challenge/' + id).then(function(response) {
-      getChallenges();
-    });
+    $http.put('/challenge/delete', challenge).then(function(response) {
+      getUserChallenges();
+});
   };
 }]);
