@@ -1,6 +1,8 @@
-
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
 <body layout="row">
-  <div layout="column" flex>
+  <div layout="column" flex layout-align="center">
     <md-toolbar class="md-small-tall" md-scroll-shrink="true">
         <div class="md-toolbar-tools">
           <md-nav-bar
@@ -13,73 +15,51 @@
           </md-nav-bar>
     </div>
   </md-toolbar>
-
-  <!-- <md-content layout="column" flex>
-   <div flex layout="column">
-  <table>
-    <thead>
-      <tr>
-        <th>Challenge</th>
-        <th>Difficulty</th>
-        <th>Date</th>
-        <th>Times Completed</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="challenge in ac.journeyList | orderBy:'id':true">
-        <td>{{challenge.title}}</td>
-        <td>{{challenge.category}}</td>
-        <td>{{challenge.date}}</td>
-        <td>{{challenge.count}}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-</md-content> -->
-<md-content layout="column" flex>
- <div flex layout="column">
-<table>
+  <md-tabs md-dynamic-height md-border-top style="padding-top: 50px">
+      <md-tab label="My Challenges">
+<md-content class="TopTable">
+ <div >
+<table class="table" align="center">
   <thead>
-    USER CHALLENGES
     <tr>
       <th>Challenge</th>
-      <th>Difficulty</th>
+      <th>Count</th>
       <th>Date</th>
-      <th>Times Completed</th>
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="challenge in ac.userChallengeList | orderBy:'id':true">
+    <tr ng-repeat="challenge in ac.userChallengeList | orderBy: '-count'  " ng-hide="challenge.count == 0">
       <td>{{challenge.title}}</td>
-      <td>{{challenge.category}}</td>
-      <td>{{challenge.date}}</td>
       <td>{{challenge.count}}</td>
+      <td>{{challenge.date}}</td>
     </tr>
   </tbody>
 </table>
 </div>
 </md-content>
-<md-content layout="column" flex>
- <div flex layout="column">
-<table>
+</md-tab>
+ <md-tab label="SocialKite Challenges">
+<md-content >
+ <div >
+<table class="table" align="center">
   <thead>
     <tr>
       <th>Challenge</th>
-      <th>Difficulty</th>
+      <th>Count</th>
       <th>Date</th>
-      <th>Times Completed</th>
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="challenge in ac.globalChallengeList | orderBy:'id':true">
+    <tr ng-repeat="challenge in ac.globalChallengeList | orderBy: '-count'  " ng-hide="challenge.count == 0">
       <td>{{challenge.title}}</td>
-      <td>{{challenge.category}}</td>
-      <td>{{challenge.date}}</td>
       <td>{{challenge.count}}</td>
+      <td>{{challenge.date}}</td>
     </tr>
   </tbody>
 </table>
 </div>
 </md-content>
+</md-tab>
+</md-tabs>
 </div>
 </body>

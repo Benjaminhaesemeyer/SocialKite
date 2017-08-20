@@ -5,6 +5,11 @@ body, html {
   font-size: 14px;
 }
 
+#chalForm {
+  size: 30px;
+  padding: 10px;
+}
+
 .instructions .container h1 {
   font-size: 32px;
   font-weight: 600;
@@ -79,17 +84,14 @@ li a:hover {
   color: #eee;
 }
 
-table, th , td  {
-  border: 1px solid grey;
-  border-collapse: collapse;
-  margin: 50px;
-  padding: 5px;
-  font-size: 20px;
+table {
+  margin-left:  auto;
+  margin-right:auto;
 }
 
-td {
+/*td {
   font-size: 15px;
-}
+}*/
 
 .login-form {
   md-card {
@@ -100,9 +102,9 @@ td {
     }
   }
 }
-md-content {
+/*md-content {
   padding-top: 60px;
-}
+}*/
 
 .md-small-tall {
   position: fixed;
@@ -191,15 +193,28 @@ md-nav-bar md-nav-ink-bar {
 }
 
 
-/*testing card flip animation*/
+.space {
+  padding: 75px;
+}
 
+
+
+.face{
+  box-shadow: 0 14px 28px rgba(0,0,0,0.35), 0 10px 10px rgba(0,0,0,0.22);
+  border-radius: .5em;
+}
+
+/*testing card flip animation*/
 
 .flip {
   -webkit-perspective: 800;
-   width: 100%;
+   width: 90%;
    height: 200px;
     position: relative;
-    margin: 50px auto;
+    left: -8px;
+    margin: 20px auto;
+    display: flex;
+
 }
 .flip .card.flipped {
   -webkit-transform: rotatex(-180deg);

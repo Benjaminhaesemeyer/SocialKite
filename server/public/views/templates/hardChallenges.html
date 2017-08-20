@@ -11,43 +11,51 @@
         <md-nav-item md-nav-click="cc.userService.logout()">Log Out</md-nav-item>
       </md-nav-bar>
     </div>
+    <form id="chalForm" name="challengeForm">
+      <input type="text" placeholder="Challenge" ng-required="true" ng-model="cc.title">
+      <select name="mySelect" ng-required="true" ng-model="cc.category">
+        <option value="" selected>Select difficulty</option>
+        <option ng-repeat="x in cc.difficulty" value={{x.level}}>{{x.level}}</option>
+      </select>
+      <button ng-disabled="challengeForm.$invalid || challengeForm.$pending"
+      ng-click="cc.createChallenge(cc.title, cc.category)">Add Challenge</button>
+    </form>
   </md-toolbar>
+<div class="space">
 
-  <md-content layout="column" flex>
-    <div flex layout="column">
-      <form name="challengeForm">
-        <input type="text" placeholder="Challenge" ng-required="true" ng-model="cc.title">
-        <select name="mySelect" ng-required="true" ng-model="cc.category">
-          <option value="" selected>Select difficulty</option>
-          <option ng-repeat="x in cc.difficulty" value={{x.level}}>{{x.level}}</option>
-        </select>
-        <button ng-disabled="challengeForm.$invalid || challengeForm.$pending"
-        ng-click="cc.createChallenge(cc.title, cc.category)">Add Challenge</button>
-      </form>
-    </md-content>
+</div>
 
-    <md-toolbar layout="row" class="md-hue-3">
-      <div class="md-toolbar-tools">
-        <span>Hard Challenges</span>
+
+    <div class="flip" ng-repeat="challenge in cc.userChallengeList | filter : 'Hard'" >
+      <div class="card" ng-class="{'flipped':isFlipped}"  >
+      <md-card class="face front" >
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Challenge Front</span>
+                  <span class="md-subhead">{{challenge.title}}</span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-actions layout="row" layout-align="end center">
+                <md-button ng-click="isFlipped=!isFlipped">Flip</md-button>
+                <md-button class="md-secondary" ng-click="cc.deleteChallenge(challenge)">Remove</md-button>
+                <md-button class="md-secondary" ng-click="cc.completeChallenge(challenge)">Done</md-button>
+              </md-card-actions>
+      </md-card>
+      <md-card class="face back" >
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Challenge back</span>
+                  <span class="md-subhead">{{challenge.title}}</span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-actions layout="row" layout-align="end center">
+                <md-button ng-click="isFlipped=!isFlipped">Flip</md-button>
+                <md-button class="md-secondary" ng-click="cc.deleteChallenge(challenge)">Remove</md-button>
+                <md-button class="md-secondary" ng-click="cc.completeChallenge(challenge)">Done</md-button>
+              </md-card-actions>
+      </md-card>
       </div>
-    </md-toolbar>
-    <md-content>
-      <md-list class="md-dense" flex>
-        <md-list-item class="md-3-line" ng-repeat="challenge in cc.userChallengeList | filter : 'Hard'">
-          <div class="md-list-item-text" layout="column">
-            <h3>{{challenge.title}}</h3>
-            <md-button class="md-secondary" ng-click="cc.deleteChallenge(challenge)">Remove</md-button>
-            <md-button class="md-secondary" ng-click="cc.completeChallenge(challenge)">Done</md-button>
-          </div>
-        </md-list-item>
-        <md-list-item class="md-3-line" ng-repeat="challenge in cc.challengeList | filter : 'Hard'">
-          <div class="md-list-item-text" layout="column">
-            <h3>{{challenge.title}}</h3>
-            <!-- <md-button class="md-secondary" ng-click="cc.deleteChallenge(challenge)">Remove</md-button> -->
-            <md-button class="md-secondary" ng-click="cc.completeChallenge(challenge)">Done</md-button>
-          </div>
-        </md-list-item>
-      </md-list>
-    </md-content>
-  </div>
+    </div>
+
+
 </body>

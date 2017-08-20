@@ -12,21 +12,39 @@
           </md-nav-bar>
     </div>
   </md-toolbar>
-  <!-- CARD FLIP ANIMATION WIP -->
+  <div class="space">
 
-    <md-content layout="column" flex>
-  <div class="flip">
-      <div class="card" ng-class="{'flipped':isFlipped}" ng-click="isFlipped=!isFlipped">
-          <div class="face front">
-              Front
-          </div>
-          <div class="face back">
-              Back
-          </div>
-      </div>
   </div>
-  </md-content>
-  <md-content layout="column" flex>
+  <!-- CARD FLIP ANIMATION WIP -->
+<div class="flip">
+  <div class="card" ng-class="{'flipped':isFlipped}">
+  <md-card class="face front">
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">Challenge Front</span>
+              <span class="md-subhead">challenge description here</span>
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-actions layout="row" layout-align="end center">
+            <md-button ng-click="isFlipped=!isFlipped">Action 1</md-button>
+            <md-button ng-click="isFlipped=!isFlipped">Action 2</md-button>
+          </md-card-actions>
+  </md-card>
+  <md-card class="face back">
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-headline">Challenge back</span>
+              <span class="md-subhead">challenge description here</span>
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-actions layout="row" layout-align="end center">
+            <md-button ng-click="isFlipped=!isFlipped">Action 1</md-button>
+            <md-button ng-click="isFlipped=!isFlipped">Action 2</md-button>
+          </md-card-actions>
+  </md-card>
+  </div>
+</div>
+
    <div flex layout="column">
      <div  class="challengeGallery js-flickity" data-flickity='{ "cellAlign": "left", "contain": true }'>
        <div class="gallery-cell"><a class="sliderLink" href="#/easy">Easy</a></div>
@@ -35,7 +53,7 @@
        <div class="gallery-cell"><a class="sliderLink" href="#/my">My Challenges </a></div>
      </div>
 </div>
-</md-content>
+
 
 <!-- CARD FLIP ANIMATION WIP -->
 

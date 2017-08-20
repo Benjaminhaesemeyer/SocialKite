@@ -20,11 +20,11 @@ myApp.controller('LoginController', function($http, $location, UserService) {
             $location.path('/challenge'); // http://localhost:5000/#/user
           } else {
             console.log('LoginController -- login -- failure: ', response);
-            vm.message = "The username and password you entered did not match our records. Please double-check and try again.";
+            vm.message = "Error!";
           }
         }).catch(function(response){
           console.log('LoginController -- registerUser -- failure: ', response);
-          vm.message = "The username and password you entered did not match our records. Please double-check and try again.";
+          vm.message = "Error!";
         });
       }
     };
@@ -40,7 +40,7 @@ myApp.controller('LoginController', function($http, $location, UserService) {
           $location.path('/home');
         }).catch(function(response) {
           console.log('LoginController -- registerUser -- error');
-          vm.message = "Please try again.";
+          vm.message = " Please try again.";
         });
       }
     };
