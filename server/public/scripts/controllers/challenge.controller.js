@@ -5,6 +5,7 @@ myApp.controller('ChallengeController', ['$http','UserService', function($http, 
   vm.userService = UserService;
   vm.userObject = UserService.userObject;
   vm.userChallengeList = vm.userObject.userChallenges;
+  vm.globalChallengeList = vm.userObject.globalChallenges;
   getChallenges();
   vm.difficulty = [
     {level : "Easy"},
@@ -28,16 +29,14 @@ myApp.controller('ChallengeController', ['$http','UserService', function($http, 
     });
   }
   // adding a new document to the challenge collection
-  vm.createChallenge = function (title, category, count){
+  vm.createChallenge = function (title, count){
     var newChallenge = {
       title : title,
-      category : category,
       count: 0
     };
     $http.put('/challenge/new', newChallenge).then(function(response) {
       console.log('put response to add a challenge:',response);
       vm.title = '';
-      vm.category = '';
       getChallenges();
       getUserChallenges();
     });

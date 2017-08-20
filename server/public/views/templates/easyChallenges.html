@@ -1,64 +1,57 @@
 <body layout="row">
   <div layout="column" flex>
-    <md-toolbar class="md-small-tall">
-        <div class="md-toolbar-tools">
+    <md-toolbar  class="md-small-tall">
+        <div class="md-toolbar-tools" layout="row" layout-align="center" flex>
           <md-nav-bar
           md-selected-nav-item="currentNavItem"
           nav-bar-aria-label="navigation links">
             <md-nav-item md-nav-href="#/challenge" name="page1"><img src="../../styles/assets/kite_icon.png" style="width: 28px; height:28px;"></md-nav-item>
             <md-nav-item md-nav-href="#/activity" name="page2"><img src="../../styles/assets/journey_icon.png" style="width: 20px; height:20px;"></md-nav-item>
             <md-nav-item md-nav-href="#/user" name="page3"><img src="../../styles/assets/visual_icon.png" style="width: 20px; height:20px;"></md-nav-item>
-            <md-nav-item md-nav-click="cc.userService.logout()">Log Out</md-nav-item>
           </md-nav-bar>
     </div>
+    <div class="md-toolbar-tools" layout="row" layout-align="center" flex>
+      <md-nav-bar
+      md-selected-nav-item="currentNavItem"
+      nav-bar-aria-label="navigation links">
+        <md-nav-item md-nav-href="#/normal">Normal</md-nav-item>
+        <md-nav-item md-nav-href="#/hard">Hard </md-nav-item>
+        <md-nav-item md-nav-href="#/my">My Challenges</md-nav-item>
+      </md-nav-bar>
+</div>
   </md-toolbar>
+  <div class="space">
 
-  <md-content layout="column" flex>
-   <div flex layout="column">
-  <form name="challengeForm">
-    <input type="text" placeholder="Challenge" ng-required="true" ng-model="cc.title">
-    <select name="mySelect" ng-required="true" ng-model="cc.category">
-       <option value="" selected>Select difficulty</option>
-        <option ng-repeat="x in cc.difficulty" value={{x.level}}>{{x.level}}</option>
-      </select>
-    <button ng-disabled="challengeForm.$invalid || challengeForm.$pending"
-     ng-click="cc.createChallenge(cc.title, cc.category)">Add Challenge</button>
-  </form>
-  <table>
-    <thead>
-      <tr>
-        <th>Challenge</th>
-        <th>Difficulty</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="challenge in cc.challengeList | filter : 'Easy'" >
-        <td>{{challenge.title}}</td>
-        <td>{{challenge.category}}</td>
-        <td><button ng-if="challenge.admin == false" ng-click="cc.deleteChallenge(challenge._id)">Remove</button></td>
-        <td><button ng-click="cc.completeChallenge(challenge)">Done</button></td>
-      </tr>
-    </tbody>
-  </table>
-  <table>
-    <thead>
-      <tr>
-        <th>Challenge</th>
-        <th>Difficulty</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="challenge in cc.userChallengeList  | filter : 'Easy'" >
-        <td>{{challenge.title}}</td>
-        <td>{{challenge.category}}</td>
-        <td><button ng-if="challenge.admin == false" ng-click="cc.deleteChallenge(challenge._id)">Remove</button></td>
-        <td><button ng-click="cc.completeChallenge(challenge)">Done</button></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-</md-content>
-</div>
+  </div>
+
+      <div class="flip" ng-repeat="challenge in cc.challengeList | filter : 'Easy' | orderBy:'id':true" >
+        <div class="card" ng-class="{'flipped':isFlipped}"  >
+        <md-card class="face front" >
+                <md-card-title>
+                  <md-card-title-text>
+                    <span class="md-headline">Challenge Front</span>
+                    <span class="md-subhead">{{challenge.title}}</span>
+                  </md-card-title-text>
+                </md-card-title>
+                <md-card-actions layout="column" layout-align="end end">
+                  <md-button ng-click="isFlipped=!isFlipped">Flip</md-button>
+                  <!-- <md-button class="md-secondary" ng-click="cc.deleteChallenge(challenge)">Remove</md-button> -->
+                  <md-button class="md-secondary" ng-click="cc.completeChallenge(challenge);isFlipped=!isFlipped">Done</md-button>
+                </md-card-actions>
+        </md-card>
+        <md-card class="face back" >
+                <md-card-title>
+                  <md-card-title-text>
+                    <span class="md-headline">Challenge back</span>
+                    <span class="md-subhead">{{challenge.title}}</span>
+                  </md-card-title-text>
+                </md-card-title>
+                <md-card-actions layout="row" layout-align="end center">
+                  <md-button ng-click="isFlipped=!isFlipped">Flip</md-button>
+                  <md-button class="md-secondary" ng-click="cc.deleteChallenge(challenge)">Remove</md-button>
+                  <md-button class="md-secondary" ng-click="cc.completeChallenge(challenge)">Done</md-button>
+                </md-card-actions>
+        </md-card>
+        </div>
+      </div>
 </body>

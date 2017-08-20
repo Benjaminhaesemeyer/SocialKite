@@ -4,11 +4,13 @@ body, html {
   font-family: sans-serif;
   font-size: 14px;
 }
-
-#chalForm {
+footer{
+  padding-top: 8px;
+}
+/*#chalForm {
   size: 30px;
   padding: 10px;
-}
+}*/
 
 .instructions .container h1 {
   font-size: 32px;
@@ -59,6 +61,30 @@ body, html {
   border-radius: 0px;
 }
 
+.space {
+  padding-top: 85px;
+  padding-bottom: 25px;
+  text-align: center;
+  font-size: 30px;
+}
+#challengeForm{
+  padding-top: 160px;
+  padding-bottom: 25px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.challengeHeader{
+  padding-top: 85px;
+  padding-bottom: 25px;
+  text-align: center;
+  font-size: 30px;
+}
+#logOut{
+  bottom: inherit;
+  width: 100%;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -83,15 +109,21 @@ li a:hover {
   text-decoration: underline;
   color: #eee;
 }
+/*Nav styling*/
+md-tabs{
+  margin-top: 200px;
+}
+ md-tabs md-ink-bar {
+  background: white;
+}
+md-nav-bar md-nav-ink-bar {
+  background: white;
+}
 
 table {
   margin-left:  auto;
   margin-right:auto;
 }
-
-/*td {
-  font-size: 15px;
-}*/
 
 .login-form {
   md-card {
@@ -102,9 +134,6 @@ table {
     }
   }
 }
-/*md-content {
-  padding-top: 60px;
-}*/
 
 .md-small-tall {
   position: fixed;
@@ -114,31 +143,23 @@ table {
   width: 100%  !important;
 }
 
-/*
-FLICITY STYLING*/
-
-
-gallery {
-  background: #EEE;
-}
+/*FLICITY STYLING*/
 
 .gallery-cell {
   width: 100%;
-  height: 200px;
-  margin-right: 10px;
+  height: 400px;
+  margin-left: 20px;
   background: #8C8;
+  border-radius: 2.5em;
 }
-
 /* cell number */
-/*.gallery-cell:before {
+.gallery-cell:before {
   display: block;
   text-align: center;
   line-height: 200px;
   font-size: 80px;
   color: white;
-}*/
-
-
+}
 /* big buttons, no circle */
 .flickity-prev-next-button {
   width: 100px;
@@ -160,51 +181,23 @@ gallery {
   display: none;
 }
 
-/* position dots in gallery */
-.flickity-page-dots {
-  bottom: 0px;
-}
-/* white circles */
-.flickity-page-dots .dot {
-  width: 12px;
-  height: 12px;
-  opacity: 1;
-  background: transparent;
-  border: 2px solid white;
-}
-/* fill-in selected dot */
-.flickity-page-dots .dot.is-selected {
-  background: white;
-}
-
 .sliderLink {
   display: block;
   text-align: center;
-  line-height: 200px;
-  font-size: 80px;
+  line-height: 400px;
+  font-size: 40px;
   color: white;
   outline: none;
   border: 0;
    text-decoration: none;
 }
 
-md-nav-bar md-nav-ink-bar {
-  background: white;
-}
-
-
-.space {
-  padding: 75px;
-}
-
-
+/*CARD FLIP ANIMATION*/
 
 .face{
   box-shadow: 0 14px 28px rgba(0,0,0,0.35), 0 10px 10px rgba(0,0,0,0.22);
   border-radius: .5em;
 }
-
-/*testing card flip animation*/
 
 .flip {
   -webkit-perspective: 800;

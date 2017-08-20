@@ -1,49 +1,19 @@
 <body layout="row">
   <div layout="column" flex>
     <md-toolbar class="md-small-tall">
-        <div class="md-toolbar-tools">
+        <div class="md-toolbar-tools" layout="row" layout-align="center" flex>
           <md-nav-bar
           md-selected-nav-item="currentNavItem"
           nav-bar-aria-label="navigation links">
             <md-nav-item md-nav-href="#/challenge" name="page1"><img src="../../styles/assets/kite_icon.png" style="width: 28px; height:28px;-webkit-filter: invert(100%);"></md-nav-item>
             <md-nav-item md-nav-href="#/activity" name="page2"><img src="../../styles/assets/journey_icon.png" style="width: 20px; height:20px;"></md-nav-item>
             <md-nav-item md-nav-href="#/user" name="page3"><img src="../../styles/assets/visual_icon.png" style="width: 20px; height:20px;"></md-nav-item>
-            <md-nav-item md-nav-click="cc.userService.logout()">Log Out</md-nav-item>
           </md-nav-bar>
     </div>
   </md-toolbar>
   <div class="space">
-
+<span>Welcome message here</span>
   </div>
-  <!-- CARD FLIP ANIMATION WIP -->
-<div class="flip">
-  <div class="card" ng-class="{'flipped':isFlipped}">
-  <md-card class="face front">
-          <md-card-title>
-            <md-card-title-text>
-              <span class="md-headline">Challenge Front</span>
-              <span class="md-subhead">challenge description here</span>
-            </md-card-title-text>
-          </md-card-title>
-          <md-card-actions layout="row" layout-align="end center">
-            <md-button ng-click="isFlipped=!isFlipped">Action 1</md-button>
-            <md-button ng-click="isFlipped=!isFlipped">Action 2</md-button>
-          </md-card-actions>
-  </md-card>
-  <md-card class="face back">
-          <md-card-title>
-            <md-card-title-text>
-              <span class="md-headline">Challenge back</span>
-              <span class="md-subhead">challenge description here</span>
-            </md-card-title-text>
-          </md-card-title>
-          <md-card-actions layout="row" layout-align="end center">
-            <md-button ng-click="isFlipped=!isFlipped">Action 1</md-button>
-            <md-button ng-click="isFlipped=!isFlipped">Action 2</md-button>
-          </md-card-actions>
-  </md-card>
-  </div>
-</div>
 
    <div flex layout="column">
      <div  class="challengeGallery js-flickity" data-flickity='{ "cellAlign": "left", "contain": true }'>
@@ -53,21 +23,8 @@
        <div class="gallery-cell"><a class="sliderLink" href="#/my">My Challenges </a></div>
      </div>
 </div>
-
-
-<!-- CARD FLIP ANIMATION WIP -->
-
-  <!-- <md-content layout="column" flex>
-<div class="flip">
-    <div class="card" ng-class="{'flipped':isFlipped}" ng-click="isFlipped=!isFlipped">
-        <div class="face front">
-            Front
-        </div>
-        <div class="face back">
-            Back
-        </div>
-    </div>
-</div>
-</md-content> -->
 </div>
 </body>
+<footer>
+  <md-button id="logOut"class="md-raised md-primary" ng-click="cc.userService.logout()"> log out</md-button>
+</footer>
