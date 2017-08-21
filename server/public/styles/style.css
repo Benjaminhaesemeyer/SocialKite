@@ -191,6 +191,14 @@ table {
    text-decoration: none;
 }
 
+.Logo{
+  padding: 20px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 35px;
+  color:#3F51B5;
+}
+
 /*CARD FLIP ANIMATION*/
 
 .face{
