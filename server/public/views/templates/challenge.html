@@ -12,15 +12,15 @@
     </div>
   </md-toolbar>
   <div class="space">
-<span>Welcome message here</span>
+<span>Welcome, {{cc.userService.userObject.userName}}!</span>
   </div>
 
    <div flex layout="column">
      <div  class="challengeGallery js-flickity" data-flickity='{ "cellAlign": "left", "contain": true }'>
-       <div class="gallery-cell"><a class="sliderLink" href="#/easy">Easy</a></div>
-       <div class="gallery-cell"><a class="sliderLink" href="#/normal">Normal </a></div>
-       <div class="gallery-cell"><a class="sliderLink" href="#/hard">Hard </a></div>
-       <div class="gallery-cell"><a class="sliderLink" href="#/my">My Challenges </a></div>
+       <div id="easyCell" class="gallery-cell"><a class="sliderLink" href="#/easy">Easy</a></div>
+       <div id="normalCell" class="gallery-cell"><a class="sliderLink" href="#/normal">Normal </a></div>
+       <div id="hardCell" class="gallery-cell"><a class="sliderLink" href="#/hard">Hard </a></div>
+       <div id="myCell" class="gallery-cell"><a class="sliderLink" href="#/my">My Challenges </a></div>
      </div>
 </div>
 </div>

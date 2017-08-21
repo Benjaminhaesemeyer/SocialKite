@@ -8,7 +8,7 @@ var User = require('../models/user.js');
     console.log('This is what were looking for', req.body);
     User.findOneAndUpdate(
       {"_id": req.user._id, "userChallenges.title": req.body.title},
-      {$set: {"userChallenges.$.count":req.body.count}},
+      {$set: {"userChallenges.$.count":req.body.count,"userChallenges.$.date":req.body.date}},
       function(err, data) {
         if(err) {
           console.log('update error: ', err);

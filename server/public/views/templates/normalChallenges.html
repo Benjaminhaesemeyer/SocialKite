@@ -26,30 +26,32 @@
 
       <div class="flip" ng-repeat="challenge in cc.challengeList | filter : 'Normal' | orderBy:'id':true" >
         <div class="card" ng-class="{'flipped':isFlipped}"  >
-        <md-card class="face front" >
+        <md-card class="face frontNormal" >
                 <md-card-title>
                   <md-card-title-text>
-                    <span class="md-headline">Challenge Front</span>
-                    <span class="md-subhead">{{challenge.title}}</span>
+                    <span class="md-headline" layout-align="center center">{{challenge.title}}</span>
                   </md-card-title-text>
                 </md-card-title>
                 <md-card-actions layout="column" layout-align="end end">
-                  <md-button ng-click="isFlipped=!isFlipped">Flip</md-button>
-                  <md-button class="md-secondary" ng-click="cc.deleteChallenge(challenge)">Remove</md-button>
-                  <md-button class="md-secondary" ng-click="cc.completeChallenge(challenge);isFlipped=!isFlipped">Done</md-button>
+                  <md-button class="md-secondary" ng-click="cc.completeChallenge(challenge);isFlipped=!isFlipped"><img src="../../styles/assets/check.svg" style="width: 40px; height:40px;"></md-button>
                 </md-card-actions>
         </md-card>
-        <md-card class="face back" >
+        <md-card class="face backNormal" >
                 <md-card-title>
                   <md-card-title-text>
-                    <span class="md-headline">Challenge back</span>
-                    <span class="md-subhead">{{challenge.title}}</span>
+                    <span class="md-headline" layout-align="center center">{{challenge.title}}</span>
                   </md-card-title-text>
                 </md-card-title>
                 <md-card-actions layout="row" layout-align="end center">
-                  <md-button ng-click="isFlipped=!isFlipped">Flip</md-button>
-                  <md-button class="md-secondary" ng-click="cc.deleteChallenge(challenge)">Remove</md-button>
-                  <md-button class="md-secondary" ng-click="cc.completeChallenge(challenge)">Done</md-button>
+                  <md-button class="md-secondary" ng-click="cc.completeChallenge(challenge)"><div class="wrapper">
+  <svg style="width:60px;height:60px;margin-bottom:50px;"version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 98.5 98.5" enable-background="new 0 0 98.5 98.5" xml:space="preserve">
+  <path class="checkmark" fill="none" stroke-width="8" stroke-miterlimit="10" d="M81.7,17.8C73.5,9.3,62,4,49.2,4
+	C24.3,4,4,24.3,4,49.2s20.3,45.2,45.2,45.2s45.2-20.3,45.2-45.2c0-8.6-2.4-16.6-6.5-23.4l0,0L45.6,68.2L24.7,47.3"/>
+</svg>
+
+
+</div></md-button>
                 </md-card-actions>
         </md-card>
         </div>

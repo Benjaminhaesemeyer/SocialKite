@@ -149,7 +149,6 @@ table {
   width: 100%;
   height: 400px;
   margin-left: 20px;
-  background: #8C8;
   border-radius: 2.5em;
 }
 /* cell number */
@@ -224,22 +223,100 @@ table {
   position: absolute;
   -webkit-backface-visibility: hidden ;
   z-index: 2;
-    font-family: Georgia;
-    font-size: 3em;
+    font-family: sans-serif;
+    font-size: 5em;
     text-align: center;
-    line-height: 200px;
+    line-height: 100px;
 }
-.flip .card .front {
+.flip .card .frontMy{
   position: absolute;
   z-index: 1;
-    background: black;
-    color: white;
+    background: #e7af76;
+    color: black;
     cursor: pointer;
 }
-.flip .card .back {
+.flip .card .backMy {
   -webkit-transform: rotatex(-180deg);
-    background: #8C8;
+    background: #E19C54;
     /*background: white;*/
-    color: white;
+    color: black;
     cursor: pointer;
+}
+.flip .card .frontHard {
+  position: absolute;
+  z-index: 1;
+    background: #e77676;
+    color: black;
+    cursor: pointer;
+}
+.flip .card .backHard {
+  -webkit-transform: rotatex(-180deg);
+    background: #e15554;
+    /*background: white;*/
+    color: black;
+    cursor: pointer;
+}
+.flip .card .frontNormal{
+  position: absolute;
+  z-index: 1;
+    background: #76e6e7;
+    color: black;
+    cursor: pointer;
+}
+.flip .card .backNormal{
+  -webkit-transform: rotatex(-180deg);
+    background:  #54E0E1;
+    /*background: white;*/
+    color: black;
+    cursor: pointer;
+}
+.flip .card .frontEasy {
+  position: absolute;
+  z-index: 1;
+    background: #76e7af;
+    color: black;
+    cursor: pointer;
+}
+.flip .card .backEasy {
+  -webkit-transform: rotatex(-180deg);
+    background: #54E19C;
+    /*background: white;*/
+    color: black;
+    cursor: pointer;
+}
+
+#easyCell{
+  background: #54E19C;
+}
+#normalCell{
+  background:  #54E0E1;
+}
+#hardCell{
+  background: #e15554;
+}
+#myCell{
+  background: #E19C54;
+}
+
+/*CHECK MARK ANIMATION*/
+
+.wrapper {
+  width: 100px;
+  margin: 4em auto 0;
+}
+
+.checkmark {
+  stroke: #5554E1;
+  stroke-dashoffset: 745.74853515625;
+  stroke-dasharray: 745.74853515625;
+  animation: dash 2s ease-out forwards infinite;
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 745.74853515625;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
 }

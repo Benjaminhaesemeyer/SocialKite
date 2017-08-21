@@ -29,7 +29,7 @@ myApp.controller('ChallengeController', ['$http','UserService', function($http, 
     });
   }
   // adding a new document to the challenge collection
-  vm.createChallenge = function (title, count){
+  vm.createChallenge = function (title){
     var newChallenge = {
       title : title,
       count: 0
@@ -37,7 +37,6 @@ myApp.controller('ChallengeController', ['$http','UserService', function($http, 
     $http.put('/challenge/new', newChallenge).then(function(response) {
       console.log('put response to add a challenge:',response);
       vm.title = '';
-      getChallenges();
       getUserChallenges();
     });
   };
@@ -49,6 +48,33 @@ getUserChallenges();
       vm.userChallengeList = response.data.userChallenges;
     });
   }
+
+  vm.completeMyChallenge = function(challenge){
+    console.log('completeChallenge function');
+
+    // creating date format to add to completed Challenges
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+
+    if(dd<10) {
+      dd = '0'+dd
+    }
+
+    if(mm<10) {
+      mm = '0'+mm
+    }
+
+    today = mm + '/' + dd + '/' + yyyy;
+    // assinging date property to challenge schema
+    challenge.date = today;
+    challenge.count += 1;
+    console.log('logging challenge',challenge);
+    $http.put('/count/new', challenge).then(function(response) {
+      console.log('put response count:',response);
+    });
+  };
 
   vm.completeChallenge = function(challenge){
     console.log('completeChallenge function');
@@ -71,18 +97,12 @@ getUserChallenges();
     // assinging date property to challenge schema
     challenge.date = today;
     challenge.count += 1;
-    $http.put('/challenge', challenge).then(function(response) {
-      console.log('put response date:',response);
-    });
-
+    console.log('logging challenge',challenge);
     $http.put('/challenge/global', challenge).then(function(response) {
       console.log('put response global:',response);
     });
-    console.log('logging challenge',challenge);
-    $http.put('/count/new', challenge).then(function(response) {
-      console.log('put response count:',response);
-    });
   };
+
 
   // NEEDS TO BE FIXED
   vm.deleteChallenge = function(challenge){
